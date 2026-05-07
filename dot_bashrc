@@ -1,0 +1,19 @@
+# If not running interactively, don't do anything (leave this at the top of this file)
+[[ $- != *i* ]] && return
+
+# Omarchy defaults (if present)
+if [ -f "$HOME/.local/share/omarchy/default/bash/rc" ]; then
+    source "$HOME/.local/share/omarchy/default/bash/rc"
+fi
+
+
+# Add your own exports, aliases, and functions here.
+# User dotfiles (GNU Stow)
+if [ -f "$HOME/.config/bash/user.bashrc" ]; then
+    source "$HOME/.config/bash/user.bashrc"
+fi
+
+if [ -f "$HOME/.config/bash/env" ]; then
+    source "$HOME/.config/bash/env"
+fi
+alias hx="helix"

@@ -1,0 +1,18 @@
+# Starship (if Omarchy sets one, yours wins)
+command -v starship >/dev/null && eval "$(starship init bash)"
+
+# Zoxide
+command -v zoxide >/dev/null && eval "$(zoxide init bash)"
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Yazi cd integration
+y () {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
+}
+
