@@ -8,7 +8,7 @@ fi
 
 
 # Add your own exports, aliases, and functions here.
-# User dotfiles (GNU Stow)
+# User dotfiles
 if [ -f "$HOME/.config/bash/user.bashrc" ]; then
     source "$HOME/.config/bash/user.bashrc"
 fi
