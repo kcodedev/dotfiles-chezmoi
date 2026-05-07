@@ -5,7 +5,7 @@ prepend_keymap = [
     { on = [ "g", "V" ], run = "cd ~/Videos", desc = "Go to Video" },
     { on = [ "g", "D" ], run = "cd ~/Documents", desc = "Go to Documents" },
     { on = [ "g", "R" ], run = "cd ~/Repos", desc = "Go to Repos" },
-    { on = [ "g", "y" ], run = "cd ~/dotfiles/yazi/.config/yazi", desc = "yazi dotfiles" },
+    { on = [ "g", "y" ], run = "cd ~/.local/share/chezmoi/dot_config/yazi", desc = "yazi dotfiles" },
     { on = [ "g", "O" ], run = "cd ~/Repos/fresh-obsidian/VaultRoot", desc = "Obsidian Repo" },
     { on = [ "g", "C" ], run = "cd ~/Repos/CompLaunch-Fast", desc = "CompLaunch Repo" }
 ]
