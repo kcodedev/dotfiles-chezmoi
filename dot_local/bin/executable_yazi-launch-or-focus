@@ -1,0 +1,9 @@
+#!/bin/bash
+
+launch_command="omarchy-launch-tui yazi"
+for arg in "$@"; do
+  printf -v escaped_arg "%q" "$arg"
+  launch_command+=" $escaped_arg"
+done
+
+exec omarchy-launch-or-focus yazi "$launch_command"
