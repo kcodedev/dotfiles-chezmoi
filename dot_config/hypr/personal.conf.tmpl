@@ -1,10 +1,34 @@
 # Personal Hyprland configuration managed by chezmoi.
 source = ~/.config/hypr/common.conf
 
-{{- if or (eq .chezmoi.hostname "dell-7430") (eq .chezmoi.hostname "dell7430") }}
-source = ~/.config/hypr/laptop.conf
-{{- else if or (eq .chezmoi.hostname "macbook-air-2015") (eq .chezmoi.hostname "macbook-air") }}
-source = ~/.config/hypr/macbook-air.conf
-{{- else if eq .chezmoi.hostname "acer-revo-mini-pc" }}
-source = ~/.config/hypr/desktop.conf
+{{- $hostname := .chezmoi.hostname -}}
+{{- $hypr := .hyprland -}}
+{{- if has $hostname $hypr.desktop.hostnames }}
+source = ~/.config/hypr/{{ $hypr.desktop.include }}
+{{- else if has $hostname $hypr.dell_laptop.hostnames }}
+source = ~/.config/hypr/{{ $hypr.dell_laptop.include }}
+monitor = {{ $hypr.dell_laptop.monitor }}
+env = GDK_SCALE,{{ $hypr.dell_laptop.gdk_scale }}
+input {
+  touchpad {
+    natural_scroll = {{ $hypr.dell_laptop.touchpad_natural_scroll }}
+    scroll_factor = {{ $hypr.dell_laptop.touchpad_scroll_factor }}
+  }
+}
+{{- else if has $hostname $hypr.macbook_air.hostnames }}
+source = ~/.config/hypr/{{ $hypr.macbook_air.include }}
+monitor = {{ $hypr.macbook_air.monitor }}
+env = GDK_SCALE,{{ $hypr.macbook_air.gdk_scale }}
+{{- range $hypr.macbook_air.unbinds }}
+unbind = {{ . }}
+{{- end }}
+{{- range $hypr.macbook_air.binds }}
+bindd = {{ . }}
+{{- end }}
+input {
+  touchpad {
+    natural_scroll = {{ $hypr.macbook_air.touchpad_natural_scroll }}
+    scroll_factor = {{ $hypr.macbook_air.touchpad_scroll_factor }}
+  }
+}
 {{- end }}
