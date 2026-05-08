@@ -1,8 +1,10 @@
 # Personal Hyprland configuration managed by chezmoi.
 source = ~/.config/hypr/common.conf
 
-{{- if or (eq .chezmoi.hostname "dell-7430") (eq .chezmoi.hostname "dell7430") (eq .chezmoi.hostname "macbook-air-2015") (eq .chezmoi.hostname "macbook-air") }}
+{{- if or (eq .chezmoi.hostname "dell-7430") (eq .chezmoi.hostname "dell7430") }}
 source = ~/.config/hypr/laptop.conf
+{{- else if or (eq .chezmoi.hostname "macbook-air-2015") (eq .chezmoi.hostname "macbook-air") }}
+source = ~/.config/hypr/macbook-air.conf
 {{- else if eq .chezmoi.hostname "acer-revo-mini-pc" }}
 source = ~/.config/hypr/desktop.conf
 {{- end }}

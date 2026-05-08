@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -euo pipefail
+
+monitor_info=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true)')
+active_monitor=$(echo "$monitor_info" | jq -r '.name')
+current_scale=$(echo "$monitor_info" | jq -r '.scale')
+width=$(echo "$monitor_info" | jq -r '.width')
+height=$(echo "$monitor_info" | jq -r '.height')
+refresh_rate=$(echo "$monitor_info" | jq -r '.refreshRate')
+
+scales=(1 1.1 1.25)
+
+current_idx=$(awk -v s="$current_scale" -v list="${scales[*]}" 'BEGIN {
+  n = split(list, arr, " ")
+  best = 0; best_diff = 1e9
+  for (i = 1; i <= n; i++) {
+    d = s - arr[i]; if (d < 0) d = -d
+    if (d < best_diff) { best_diff = d; best = i - 1 }
+  }
+  print best
+}')
+
+if [[ "${1:-}" == "--reverse" ]]; then
+  new_idx=$(( (current_idx - 1 + ${#scales[@]}) % ${#scales[@]} ))
+else
+  new_idx=$(( (current_idx + 1) % ${#scales[@]} ))
+fi
+
+new_scale=${scales[$new_idx]}
+
+hyprctl keyword monitor "$active_monitor,${width}x${height}@${refresh_rate},auto,$new_scale"
+notify-send -u low "Display scaling set to ${new_scale}x"
