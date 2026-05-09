@@ -1,0 +1,34 @@
+[plugin]
+spotters = [
+    { name = "*/", run = "folder" },
+    { mime = "text/*", run = "code" },
+    { mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
+    { mime = "video/*", run = "video" },
+    { name = "*", run = "file" },
+]
+
+preloaders = [
+    { mime = "video/*", run = "video" },
+    { mime = "application/pdf", run = "pdf" },
+    { mime = "font/*", run = "font" },
+    { mime = "application/ms-opentype", run = "font" },
+]
+
+previewers = [
+    { name = "*/", run = "folder" },
+    { mime = "text/*", run = "code" },
+    { mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
+    { mime = "application/{json,ndjson}", run = "json" },
+    { mime = "video/*", run = "video" },
+    { mime = "application/pdf", run = "pdf" },
+    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", run = "archive" },
+    { mime = "application/{debian*-package,redhat-package-manager,rpm,android.package-archive}", run = "archive" },
+    { name = "*.{AppImage,appimage}", run = "archive" },
+    { mime = "application/{iso9660-image,qemu-disk,ms-wim,apple-diskimage}", run = "archive" },
+    { mime = "application/virtualbox-{vhd,vhdx}", run = "archive" },
+    { name = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}", run = "archive" },
+    { mime = "font/*", run = "font" },
+    { mime = "application/ms-opentype", run = "font" },
+    { mime = "inode/empty", run = "empty" },
+    { name = "*", run = "file" },
+]
