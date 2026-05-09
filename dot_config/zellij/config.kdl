@@ -1,4 +1,13 @@
-theme "gruvbox-dark"
+env {
+    TERM "xterm-256color"
+    KITTY_INSTALLATION_DIR ""
+    KITTY_PID ""
+    KITTY_PUBLIC_KEY ""
+    KITTY_WINDOW_ID ""
+    EDITOR "/usr/bin/helix"
+    VISUAL "/usr/bin/helix"
+}
+scrollback_editor "/usr/bin/helix"
 keybinds clear-defaults=true {
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
