@@ -1,5 +1,5 @@
 [hyprland.desktop]
-hostnames = ["acer-revo-mini-pc"]
+hostnames = ["acer-revo-mini-pc", "revo-rb610"]
 include = "desktop.conf"
 
 [hyprland.dell_laptop]
