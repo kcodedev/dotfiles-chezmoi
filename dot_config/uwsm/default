@@ -1,0 +1,9 @@
+# Changes require a restart to take effect.
+
+# Install other terminals via Install > Terminal
+export TERMINAL=xdg-terminal-exec
+
+# Default editor for session-launched apps
+export EDITOR=helix
+export VISUAL=helix
+export SUDO_EDITOR=helix
