@@ -27,12 +27,3 @@ zellij() {
         TERM=xterm-256color \
         zellij "$@"
 }
-
-yazi() {
-    if [ -n "${ZELLIJ_SESSION_NAME-}" ] || [ -n "${ZELLIJ-}" ]; then
-        YAZI_CONFIG_HOME="$HOME/.config/yazi-zellij" command yazi "$@"
-        return
-    fi
-
-    command yazi "$@"
-}
