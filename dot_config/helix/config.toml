@@ -14,7 +14,6 @@ normal = "block"
 enable = true
 
 [keys.normal]
-C-l = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 C-y = [
   ":sh rm -f /tmp/files2open",
   ":set mouse false",
