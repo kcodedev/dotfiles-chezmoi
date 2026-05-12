@@ -15,15 +15,4 @@ source ~/.config/bash/paths
 # Tools
 source ~/.config/bash/tools
 
-# Zellij inherits kitty-specific env from the terminal, which makes Yazi
-# take the kitty detection path and hit the terminal-response timeout.
-zellij() {
-    env \
-        -u KITTY_INSTALLATION_DIR \
-        -u KITTY_PID \
-        -u KITTY_PUBLIC_KEY \
-        -u KITTY_WINDOW_ID \
-        -u TERMINFO \
-        TERM=xterm-256color \
-        zellij "$@"
-}
+
