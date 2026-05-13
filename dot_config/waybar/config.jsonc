@@ -7,6 +7,7 @@
   "modules-left": ["custom/omarchy", "hyprland/workspaces"],
   "modules-center": ["clock", "custom/update", "custom/voxtype", "custom/screenrecording-indicator", "custom/idle-indicator", "custom/notification-silencing-indicator"],
   "modules-right": [
+    "mpris",
     "group/tray-expander",
     "bluetooth",
     "network",
@@ -14,6 +15,23 @@
     "cpu",
     "battery"
   ],
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "format-paused": "{status_icon} <i>{title}</i>",
+    "player-icons": {
+      "default": "▶",
+      "spotify": "",
+      "firefox": "",
+      "chromium": ""
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "max-length": 30,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous"
+  },
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",

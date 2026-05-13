@@ -35,6 +35,14 @@
   opacity: 0.5;
 }
 
+#mpris {
+  margin-right: 15px;
+}
+
+#mpris.paused {
+  opacity: 0.6;
+}
+
 #cpu,
 #battery,
 #pulseaudio,
