@@ -1,0 +1,33 @@
+-- Personal look-and-feel and window rules managed by chezmoi.
+{{ $hostname := .chezmoi.hostname -}}
+{{- $hypr := .hyprland -}}
+hl.config({
+  general = {
+{{ if has $hostname $hypr.desktop.hostnames }}
+    gaps_in = 4,
+    gaps_out = 6,
+{{ else }}
+    gaps_in = 0,
+    gaps_out = 0,
+{{ end }}
+    border_size = 0,
+  },
+  animations = {
+    enabled = false,
+  },
+})
+
+-- Assign applications to the workspaces used by the personal workflow.
+o.window("^code$", { workspace = "2" })
+o.window("^cursor$", { workspace = "2" })
+o.window("^brave-browser$", { workspace = "3" })
+o.window("^obsidian$", { workspace = "10" })
+o.window("^org\\.omarchy\\.yazi$", { workspace = "13" })
+o.window({ title = "^Yazi:" }, { workspace = "13" })
+o.window("^chromium$", { workspace = "4" })
+o.window("^dbeaver$", { workspace = "5" })
+o.window("^(org\\.keepassxc\\.KeePassXC|keepassxc)$", { workspace = "14" })
+o.window(
+  { initial_class = "^(org\\.keepassxc\\.KeePassXC|keepassxc)$" },
+  { workspace = "14" }
+)

@@ -1,0 +1,56 @@
+-- Personal Omarchy 4 keybindings managed by chezmoi.
+local home = os.getenv("HOME") or ""
+
+local function bind_script(keys, description, command)
+  hl.unbind(keys)
+  o.bind(keys, description, home .. "/.local/bin/" .. command)
+end
+
+-- Shell-script launchers.
+bind_script("SUPER + SHIFT + P", "Project Launcher", "kc-project-launch")
+bind_script("SUPER + SHIFT + Z", "Session Launcher", "kc-project-launch-active")
+bind_script("SUPER + SHIFT + U", "Bookmark Launcher", "kc-bookmark-launch")
+bind_script("SUPER + SHIFT + I", "Cheatsheet Launcher", "kc-cheatsheet-launch")
+bind_script("SUPER + SHIFT + W", "Web Search", "kc-search-launch")
+bind_script("SUPER + SHIFT + semicolon", "Git Repo Status", "kc-git-repo-status")
+
+-- Personal application bindings. Unbind Omarchy defaults before replacing
+-- keys such as Browser, Calendar, Docker, Omawrite, and YouTube.
+hl.unbind("SUPER + SHIFT + B")
+o.bind("SUPER + SHIFT + B", "Brave", { launch = "brave", focus = "brave-browser" })
+
+hl.unbind("SUPER + SHIFT + K")
+o.bind("SUPER + SHIFT + K", "KeePassXC", { launch = "keepassxc", focus = "org.keepassxc.KeePassXC" })
+
+hl.unbind("SUPER + SHIFT + V")
+o.bind("SUPER + SHIFT + V", "Visual Studio Code", { launch = "code", focus = "code" })
+
+hl.unbind("SUPER + SHIFT + Y")
+o.bind("SUPER + SHIFT + Y", "Yazi", { tui = "yazi", focus = true })
+
+hl.unbind("SUPER + SHIFT + C")
+o.bind("SUPER + SHIFT + C", "Chromium", { launch = "chromium", focus = "chromium" })
+
+hl.unbind("SUPER + SHIFT + D")
+o.bind("SUPER + SHIFT + D", "DBeaver", { launch = "dbeaver", focus = "dbeaver" })
+
+-- Disable Omarchy's packaged 1Password binding after removing the app.
+hl.unbind("SUPER + SHIFT + SLASH")
+
+{{- $hostname := .chezmoi.hostname -}}
+{{- $hypr := .hyprland -}}
+{{- if has $hostname $hypr.macbook_air.hostnames }}
+-- MacBook Air display-scaling shortcuts.
+hl.unbind("SUPER + code:61")
+hl.unbind("SUPER + ALT + code:61")
+o.bind(
+  "SUPER + code:61",
+  "Cycle MacBook Air scaling",
+  home .. "/.local/bin/kc-hyprland-monitor-scaling-cycle"
+)
+o.bind(
+  "SUPER + ALT + code:61",
+  "Cycle MacBook Air scaling backwards",
+  home .. "/.local/bin/kc-hyprland-monitor-scaling-cycle --reverse"
+)
+{{- end }}
