@@ -1,0 +1,24 @@
+# Herdr user configuration
+
+[keys]
+# Herdr supports one prefix key. Ctrl+Space is preferred here.
+prefix = "ctrl+space"
+
+# Jump directly to tabs 1 through 9 with Alt+1 through Alt+9.
+switch_tab = "alt+1..9"
+
+# Navigate directly between split panes with Ctrl+Alt and the arrow keys.
+focus_pane_left = "ctrl+alt+left"
+focus_pane_down = "ctrl+alt+down"
+focus_pane_up = "ctrl+alt+up"
+focus_pane_right = "ctrl+alt+right"
+
+[ui]
+# Keep split panes flush with no internal or outer border lines.
+pane_borders = false
+pane_outer_borders = false
+pane_gaps = false
+
+[theme]
+name = "terminal"
+auto_switch = false
