@@ -34,6 +34,9 @@ o.bind("SUPER + SHIFT + C", "Chromium", { launch = "chromium", focus = "chromium
 hl.unbind("SUPER + SHIFT + D")
 o.bind("SUPER + SHIFT + D", "DBeaver", { launch = "dbeaver", focus = "dbeaver" })
 
+hl.unbind("SUPER + SHIFT + O")
+o.bind("SUPER + SHIFT + O", "Obsidian", home .. "/.local/bin/obsidian-launch-or-focus")
+
 -- Disable Omarchy's packaged 1Password binding after removing the app.
 hl.unbind("SUPER + SHIFT + SLASH")
 

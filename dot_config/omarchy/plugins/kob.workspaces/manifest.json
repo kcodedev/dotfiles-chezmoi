@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "kob.workspaces",
+  "name": "My Workspaces",
+  "version": "1.0.0",
+  "author": "Omarchy",
+  "description": "Workspace indicators with a note icon for Obsidian",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Workspaces.qml"
+  },
+  "barWidget": {
+    "displayName": "My Workspaces",
+    "description": "Workspace indicators with a note icon for Obsidian",
+    "category": "Compositor",
+    "allowMultiple": false
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.workspaces"
+  }
+}
