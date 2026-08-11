@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -euo pipefail
+
+herdr_address=""
+
+while IFS=$'\t' read -r address pid; do
+  if pstree -p "$pid" 2>/dev/null | rg -q '(^|---|`-)herdr\('; then
+    herdr_address="$address"
+    break
+  fi
+done < <(hyprctl clients -j | jq -r '.[] | [.address, .pid] | @tsv')
+
+if [[ -n $herdr_address ]]; then
+  hyprctl dispatch "hl.dsp.window.move({ window = \"address:$herdr_address\", workspace = \"1\", follow = false })" >/dev/null
+  hyprctl dispatch 'hl.dsp.focus({ workspace = "1" })' >/dev/null
+  hyprctl dispatch "hl.dsp.focus({ window = \"address:$herdr_address\" })" >/dev/null
+else
+  hyprctl dispatch 'hl.dsp.focus({ workspace = "1" })' >/dev/null
+  exec omarchy-launch-terminal-herdr
+fi
