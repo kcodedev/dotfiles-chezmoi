@@ -1,6 +1,7 @@
 [hyprland.desktop]
 hostnames = ["acer-revo-mini-pc", "revo-rb610"]
 include = "desktop.conf"
+monitor_scale = 1.25
 
 [hyprland.dell_laptop]
 hostnames = ["dell-7430", "dell7430"]

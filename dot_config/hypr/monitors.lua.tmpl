@@ -1,7 +1,12 @@
 -- Host-specific monitor configuration managed by chezmoi.
 {{- $hostname := .chezmoi.hostname -}}
 {{- $hypr := .hyprland -}}
-{{- if has $hostname $hypr.dell_laptop.hostnames }}
+{{- if has $hostname $hypr.desktop.hostnames }}
+-- Desktop display: use the preferred mode with the configured fractional scale.
+local gdk_scale = 1
+hl.env("GDK_SCALE", tostring(gdk_scale))
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = {{ $hypr.desktop.monitor_scale }} })
+{{- else if has $hostname $hypr.dell_laptop.hostnames }}
 local gdk_scale = {{ $hypr.dell_laptop.gdk_scale }}
 hl.env("GDK_SCALE", tostring(gdk_scale))
 hl.monitor({ output = "eDP-1", mode = "1920x1080@60", position = "0x0", scale = 1.4 })
