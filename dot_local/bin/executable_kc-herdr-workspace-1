@@ -5,7 +5,9 @@ set -euo pipefail
 herdr_address=""
 
 while IFS=$'\t' read -r address pid; do
-  if pstree -p "$pid" 2>/dev/null | rg -q '(^|---|`-)herdr\('; then
+  # pstree uses different branch glyphs depending on how many sibling
+  # processes the terminal has (for example, -+-herdr or `-herdr).
+  if pstree -p "$pid" 2>/dev/null | rg -q 'herdr\('; then
     herdr_address="$address"
     break
   fi
