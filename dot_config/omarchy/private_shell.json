@@ -19,21 +19,29 @@
           "id": "omarchy.clock",
           "format": "dddd HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
-          "verticalFormat": "HH\n—\nmm"
+          "verticalFormat": "HH\n—\nmm",
+          "birthYear": 1987,
+          "lifeExpectancy": 82
         },
-        { "id": "omarchy.weather" },
-        { "id": "omarchy.system-update" }
+        { "id": "omarchy.system-update" },
+        { "id": "omarchy.weather" }
       ],
       "right": [
         { "id": "omarchy.media" },
         { "id": "omarchy.tray" },
+        {
+          "id": "kcodedev.urchin",
+          "repoPath": "/home/kob/Repos/zmk-urchin-kcodedev",
+          "keymapPath": "config/urchin.keymap",
+          "layoutPath": "config/urchin.json"
+        },
         { "id": "omarchy.dropbox" },
         { "id": "omarchy.agents" },
         { "id": "omarchy.bluetooth" },
         { "id": "omarchy.network" },
         { "id": "omarchy.audio" },
-        { "id": "omarchy.monitor" },
-        { "id": "omarchy.power" }
+        { "id": "omarchy.power" },
+        { "id": "omarchy.monitor" }
       ]
     }
   },
