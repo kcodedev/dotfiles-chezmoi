@@ -10,6 +10,11 @@ end
 bind_script("SUPER + SHIFT + U", "Bookmark Launcher", "kc-bookmark-launch")
 bind_script("SUPER + SHIFT + W", "Web Search", "kc-search-launch")
 bind_script("SUPER + SHIFT + semicolon", "Git Repo Status", "kc-git-repo-status")
+o.bind(
+  "SHIFT + PRINT",
+  "Copy latest screenshot path",
+  home .. "/.local/bin/kc-screenshot-path"
+)
 
 -- Personal application bindings. Unbind Omarchy defaults before replacing
 -- keys such as Browser, Calendar, Docker, Omawrite, and YouTube.

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [[ -f $HOME/.config/user-dirs.dirs ]]; then
+  # shellcheck disable=SC1091
+  source "$HOME/.config/user-dirs.dirs"
+fi
+
+screenshot_dir="${OMARCHY_SCREENSHOT_DIR:-${XDG_PICTURES_DIR:-$HOME/Pictures}}"
+
+shopt -s nullglob
+screenshots=("$screenshot_dir"/screenshot-*.png)
+
+if (( ${#screenshots[@]} == 0 )); then
+  omarchy-notification-send "No screenshots found" "$screenshot_dir"
+  exit 1
+fi
+
+latest_screenshot=${screenshots[0]}
+for screenshot in "${screenshots[@]:1}"; do
+  if [[ $screenshot -nt $latest_screenshot ]]; then
+    latest_screenshot=$screenshot
+  fi
+done
+
+# Copy a shell-safe representation so paths containing spaces can be pasted
+# directly into a terminal command.
+printf '%q' "$latest_screenshot" | wl-copy --type text/plain
+omarchy-notification-send "Screenshot path copied" "$latest_screenshot" --image "$latest_screenshot"
