@@ -4,6 +4,6 @@
 export TERMINAL=xdg-terminal-exec
 
 # Default editor for session-launched apps
-export EDITOR=helix
-export VISUAL=helix
-export SUDO_EDITOR=helix
+export EDITOR=nvim
+export VISUAL=nvim
+export SUDO_EDITOR=nvim

@@ -1,7 +1,7 @@
 # Editor
-export EDITOR=helix
-export VISUAL=helix
-export SUDO_EDITOR=helix
+export EDITOR=nvim
+export VISUAL=nvim
+export SUDO_EDITOR=nvim
 
 # Vi mode (overrides Omarchy if needed)
 set -o vi
