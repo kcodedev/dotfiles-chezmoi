@@ -19,7 +19,10 @@ o.bind(
 -- Personal application bindings. Unbind Omarchy defaults before replacing
 -- keys such as Browser, Calendar, Docker, Omawrite, and YouTube.
 hl.unbind("SUPER + SHIFT + F")
-o.bind("SUPER + SHIFT + F", "Strata file manager", { launch = home .. "/.local/bin/strata" })
+o.bind("SUPER + SHIFT + F", "Flea file manager", { launch = "flea" })
+hl.unbind("SUPER + ALT + SHIFT + F")
+o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)",
+  'uwsm-app -- flea "$(omarchy-cmd-terminal-cwd)"')
 
 hl.unbind("SUPER + SHIFT + B")
 o.bind("SUPER + SHIFT + B", "Brave", { launch = "brave", focus = "brave-browser" })
