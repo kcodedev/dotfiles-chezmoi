@@ -1,0 +1,6 @@
+{{- if has .chezmoi.hostname .hyprland.dell_laptop.hostnames -}}
+# Use Intel VA-API directly; auto-safe probes CUDA and delays startup here.
+# Dell Latitude 7430: CUDA probing added ~2.9s despite having only Intel Iris Xe.
+# Measured first-frame time: 3.4–3.7s with auto-safe, 0.5–0.9s with VA-API.
+hwdec=vaapi
+{{- end }}
