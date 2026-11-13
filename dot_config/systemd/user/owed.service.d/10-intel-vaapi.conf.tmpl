@@ -1,0 +1,5 @@
+{{- if has .chezmoi.hostname .hyprland.dell_laptop.hostnames -}}
+[Service]
+# Avoid slow automatic GPU interop probing exceeding OWE's startup deadline.
+Environment="OWE_MPV_OPTIONS=gpu-hwdec-interop=vaapi"
+{{- end }}

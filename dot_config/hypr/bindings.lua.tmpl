@@ -10,9 +10,20 @@ end
 bind_script("SUPER + SHIFT + U", "Bookmark Launcher", "kc-bookmark-launch")
 bind_script("SUPER + SHIFT + W", "Web Search", "kc-search-launch")
 bind_script("SUPER + SHIFT + semicolon", "Git Repo Status", "kc-git-repo-status")
+o.bind(
+  "SHIFT + PRINT",
+  "Copy latest screenshot path",
+  home .. "/.local/bin/kc-screenshot-path"
+)
 
 -- Personal application bindings. Unbind Omarchy defaults before replacing
 -- keys such as Browser, Calendar, Docker, Omawrite, and YouTube.
+hl.unbind("SUPER + SHIFT + F")
+o.bind("SUPER + SHIFT + F", "Flea file manager", { launch = "flea" })
+hl.unbind("SUPER + ALT + SHIFT + F")
+o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)",
+  'uwsm-app -- flea "$(omarchy-cmd-terminal-cwd)"')
+
 hl.unbind("SUPER + SHIFT + B")
 o.bind("SUPER + SHIFT + B", "Brave", { launch = "brave", focus = "brave-browser" })
 
@@ -21,9 +32,6 @@ o.bind("SUPER + SHIFT + K", "KeePassXC", { launch = "keepassxc", focus = "org.ke
 
 hl.unbind("SUPER + SHIFT + V")
 o.bind("SUPER + SHIFT + V", "Visual Studio Code", { launch = "code", focus = "code" })
-
-hl.unbind("SUPER + SHIFT + Y")
-o.bind("SUPER + SHIFT + Y", "Yazi", { tui = "yazi", focus = true })
 
 hl.unbind("SUPER + SHIFT + C")
 o.bind("SUPER + SHIFT + C", "Chromium", { launch = "chromium", focus = "chromium" })

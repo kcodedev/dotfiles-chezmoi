@@ -1,0 +1,11 @@
+# Run omarchy-restart-xcompose to apply changes
+
+# Include fast emoji access
+include "/usr/share/omarchy/default/xcompose"
+
+# Identification
+<Multi_key> <space> <n> : ""
+<Multi_key> <space> <e> : ""
+
+# Prompt helpers
+<Multi_key> <space> <r> : "Repeat back your understanding. Do not begin work yet. If I'm happy with your understanding, I'll say go."

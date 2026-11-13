@@ -4,6 +4,9 @@
 export TERMINAL=xdg-terminal-exec
 
 # Default editor for session-launched apps
-export EDITOR=helix
-export VISUAL=helix
-export SUDO_EDITOR=helix
+export EDITOR=nvim
+export VISUAL=nvim
+export SUDO_EDITOR=nvim
+
+# Used by terminal programs (like gh) to open URLs detached from the terminal process tree
+export BROWSER=omarchy-launch-browser
