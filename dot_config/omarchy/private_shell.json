@@ -41,7 +41,8 @@
         { "id": "omarchy.network" },
         { "id": "omarchy.audio" },
         { "id": "omarchy.power" },
-        { "id": "omarchy.monitor" }
+        { "id": "omarchy.monitor" },
+        { "id": "kcodedev.git-repos" }
       ]
     }
   },
