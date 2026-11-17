@@ -6,6 +6,9 @@ local function bind_script(keys, description, command)
   o.bind(keys, description, home .. "/.local/bin/" .. command)
 end
 
+-- Oma-cast launcher shortcut.
+require("hypr.omacast")
+
 -- Shell-script launchers.
 bind_script("SUPER + SHIFT + U", "Bookmark Launcher", "kc-bookmark-launch")
 bind_script("SUPER + SHIFT + semicolon", "Git Repo Status", "kc-git-repo-status")
