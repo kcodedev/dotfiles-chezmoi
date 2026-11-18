@@ -1,50 +1,121 @@
 {
-  "version": 1,
-  "idle": {
-    "screensaver": 150,
-    "lock": 300
-  },
   "bar": {
-    "position": "top",
-    "transparent": false,
-    "centerAnchor": "omarchy.clock",
+    "background": "glassy",
     "layout": {
-      "left": [
-        { "id": "omarchy.menu" },
-        { "id": "kob.workspaces" }
-      ],
       "center": [
-        { "id": "omarchy.indicators" },
         {
-          "id": "omarchy.clock",
+          "birthYear": 1987,
           "format": "dddd HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
-          "verticalFormat": "HH\n—\nmm",
-          "birthYear": 1987,
-          "lifeExpectancy": 82
+          "id": "omarchy.clock",
+          "lifeExpectancy": 82,
+          "verticalFormat": "HH\n—\nmm"
+        }
+      ],
+      "centerBegin": [
+        {
+          "id": "omarchy.indicators"
+        }
+      ],
+      "centerEnd": [
+        {
+          "id": "omarchy.elsewhen",
+          "cities": [
+            {
+              "name": "Chiang Mai",
+              "zone": "Asia/Bangkok",
+              "lat": 18.79038,
+              "lon": 98.98468,
+              "region": "TH"
+            },
+            {
+              "name": "Waterford",
+              "zone": "Europe/Dublin",
+              "lat": 52.25833,
+              "lon": -7.11194,
+              "region": "Munster, IE"
+            },
+            {
+              "name": "Perth",
+              "zone": "Australia/Perth"
+            }
+          ]
         },
-        { "id": "omarchy.system-update" },
-        { "id": "omarchy.weather" }
+        {
+          "id": "omarchy.system-update"
+        },
+        {
+          "id": "omarchy.weather"
+        }
+      ],
+      "left": [
+        {
+          "id": "omarchy.menu"
+        },
+        {
+          "id": "omarchy.workspaces"
+        }
       ],
       "right": [
-        { "id": "omarchy.media" },
-        { "id": "omarchy.tray" },
+        {
+          "id": "omarchy.tray"
+        },
+        {
+          "id": "kcodedev.git-repos"
+        },
+        {
+          "id": "omarchy.media"
+        },
+        {
+          "id": "omarchy.dropbox"
+        },
+        {
+          "id": "omarchy.agents"
+        },
+        {
+          "id": "omarchy.bluetooth"
+        },
+        {
+          "id": "omarchy.network"
+        },
+        {
+          "id": "omarchy.audio"
+        },
+        {
+          "id": "omarchy.power"
+        },
+        {
+          "id": "omarchy.monitor"
+        }
+      ],
+      "tray": [
+        {
+          "id": "digitalbase.sayit"
+        },
         {
           "id": "kcodedev.urchin",
-          "repoPath": "/home/kob/Repos/zmk-urchin-kcodedev",
           "keymapPath": "config/urchin.keymap",
-          "layoutPath": "config/urchin.json"
-        },
-        { "id": "omarchy.dropbox" },
-        { "id": "omarchy.agents" },
-        { "id": "omarchy.bluetooth" },
-        { "id": "omarchy.network" },
-        { "id": "omarchy.audio" },
-        { "id": "omarchy.power" },
-        { "id": "omarchy.monitor" },
-        { "id": "kcodedev.git-repos" }
+          "layoutPath": "config/urchin.json",
+          "repoPath": "/home/kob/Repos/zmk-urchin-kcodedev"
+        }
       ]
-    }
+    },
+    "position": "top"
   },
-  "plugins": [{ "id": "typecraft.omacast" }]
+  "dock": {
+    "position": "bottom"
+  },
+  "idle": {
+    "lock": 300,
+    "screensaver": 150
+  },
+  "plugins": [
+    {
+      "id": "io.voxtype.settings"
+    },
+    {
+      "id": "typecraft.omacast"
+    }
+  ],
+  "version": 1
 }

@@ -2,16 +2,8 @@
 
 set -euo pipefail
 
-herdr_address=""
-
-while IFS=$'\t' read -r address pid; do
-  # pstree uses different branch glyphs depending on how many sibling
-  # processes the terminal has (for example, -+-herdr or `-herdr).
-  if pstree -p "$pid" 2>/dev/null | rg -q 'herdr\('; then
-    herdr_address="$address"
-    break
-  fi
-done < <(hyprctl clients -j | jq -r '.[] | [.address, .pid] | @tsv')
+# Match the GUI window so the shortcut never selects a terminal running the TUI.
+herdr_address=$(hyprctl clients -j | jq -r '[.[] | select(.class == "herdr-app")][0].address // empty')
 
 if [[ -n $herdr_address ]]; then
   hyprctl dispatch "hl.dsp.window.move({ window = \"address:$herdr_address\", workspace = \"1\", follow = false })" >/dev/null
@@ -19,5 +11,5 @@ if [[ -n $herdr_address ]]; then
   hyprctl dispatch "hl.dsp.focus({ window = \"address:$herdr_address\" })" >/dev/null
 else
   hyprctl dispatch 'hl.dsp.focus({ workspace = "1" })' >/dev/null
-  exec omarchy-launch-terminal-herdr
+  exec "$HOME/.local/bin/herdr-app"
 fi

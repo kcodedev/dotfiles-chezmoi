@@ -66,3 +66,20 @@ o.bind(
   home .. "/.local/bin/kc-hyprland-monitor-scaling-cycle --reverse"
 )
 {{- end }}
+
+-- Dictation keys from before Alt + Space and Right Alt became the defaults.
+-- Remove these lines to give the keys back to applications.
+if o.dictation_installed and o.dictation_installed() then
+  o.rebind("SUPER + CTRL + X", "Toggle dictation", "omarchy-dictation toggle")
+  o.bind_hold("F9", "Start dictation (push-to-talk)", "omarchy-dictation start", "Stop dictation (push-to-talk)", "omarchy-dictation stop")
+end
+
+-- BEGIN SAYIT SHORTCUTS
+-- Managed by SayIt Settings. Other bindings are left alone.
+hl.unbind("SUPER + ALT + R")
+o.bind("SUPER + ALT + R", "Read selected text", "sayit selection --detach")
+-- END SAYIT SHORTCUTS
+
+-- SayIt playback controls.
+o.bind("CTRL + F10", "Pause or resume speech", "sayit toggle")
+o.bind("ALT + F10", "Stop speech", "sayit stop")
